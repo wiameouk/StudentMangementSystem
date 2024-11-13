@@ -12,12 +12,11 @@ public class StudentMapper {
     public Student toStudent(StudentRequest studentRequest)
     {
         return Student.builder()
-        .matricule(studentRequest.matricule())
-        .prenom(studentRequest.prenom())
-        .nom(studentRequest.nom())
-        .age(studentRequest.age())
-        .build();
-    
+            .matricule(studentRequest.matricule())
+            .prenom(studentRequest.prenom())
+            .nom(studentRequest.nom())
+            .age(studentRequest.age())
+            .build(); 
     }
 
     public StudentResponse toStudentResponse(Student student)

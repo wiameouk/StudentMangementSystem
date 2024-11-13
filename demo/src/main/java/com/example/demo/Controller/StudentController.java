@@ -1,4 +1,4 @@
-package com.example.demo.Contoller;
+package com.example.demo.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequiredArgsConstructor
 
 public class StudentController {
-
+    
     private final StudentService studentService;
 
     @PostMapping

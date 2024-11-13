@@ -22,7 +22,6 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "student")
-
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -38,8 +37,5 @@ public class Student {
     private String prenom;
 
     @Column(nullable = false)
-    private int age ;
-    
-
-    
+    private int age;    
 }

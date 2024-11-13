@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import com.example.demo.Entity.Student;
 import com.example.demo.EntityRepository.StudentRepository;
-import com.example.demo.Exception.NotFoundException;
+import com.example.demo.Exception.StudentNotFoundException;
 import com.example.demo.IService.IStudentService;
 import com.example.demo.Payload.Mapper.StudentMapper;
 import com.example.demo.Payload.Request.StudentRequest;
@@ -31,7 +31,7 @@ public class StudentService implements IStudentService{
     public StudentResponse getStudentById(String studentId) {
         return studentRepository.findById(UUID.fromString(studentId))
             .map(studentMapper::toStudentResponse)
-            .orElseThrow(()-> new NotFoundException("Cannot create student" +studentId));
+            .orElseThrow(()-> new StudentNotFoundException("Cannot create student" +studentId));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class StudentService implements IStudentService{
     @Transactional
     public void updateStudent(StudentRequest studentRequest, String studentId) {
           Student student = studentRepository.findById(UUID.fromString(studentId))
-            .orElseThrow(() -> new NotFoundException("Cannot find student with id : " + studentId));
+            .orElseThrow(() -> new StudentNotFoundException("Cannot find student with id : " + studentId));
             student.setMatricule(studentRequest.matricule());
             student.setNom(studentRequest.nom());
             student.setPrenom(studentRequest.prenom());
@@ -61,7 +61,7 @@ public class StudentService implements IStudentService{
         {
             studentRepository.deleteById(UUID.fromString(studentId));
         }else{
-            throw new NotFoundException("Cannot find student with id : " + studentId);
+            throw new StudentNotFoundException("Cannot find student with id :" + studentId);
         }
     }
 }

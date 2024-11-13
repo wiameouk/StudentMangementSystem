@@ -8,12 +8,15 @@ public record StudentRequest(
     @NotBlank
     @NonNull
     String matricule,
+
     @NotBlank
     @NonNull
     String nom,
+
     @NotBlank
     @NonNull
     String prenom,
+
     @NotBlank
     @NonNull
     int age
