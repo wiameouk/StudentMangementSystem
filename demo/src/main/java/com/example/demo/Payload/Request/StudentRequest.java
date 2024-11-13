@@ -17,7 +17,6 @@ public record StudentRequest(
     @NonNull
     String prenom,
 
-    @NotBlank
     @NonNull
     int age
 ) {

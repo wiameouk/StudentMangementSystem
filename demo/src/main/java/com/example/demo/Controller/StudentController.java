@@ -46,7 +46,7 @@ public class StudentController {
         studentService.updateStudent(studentRequest, studentId);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable("id") String studentId)
     {
         studentService.deleteById(studentId);
